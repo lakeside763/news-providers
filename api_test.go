@@ -31,7 +31,7 @@ func runRequest(t *testing.T, srv http.Handler, r *http.Request) (content []*Con
 }
 
 func TestResponseCount(t *testing.T) {
-	content := runRequest(t, app, SimpleContentRequest)
+	content := runRequest(t, &app, SimpleContentRequest)
 
 	if len(content) != 5 {
 		t.Fatalf("Got %d items back, want 5", len(content))
@@ -40,7 +40,7 @@ func TestResponseCount(t *testing.T) {
 }
 
 func TestResponseOrder(t *testing.T) {
-	content := runRequest(t, app, SimpleContentRequest)
+	content := runRequest(t, &app, SimpleContentRequest)
 
 	if len(content) != 5 {
 		t.Fatalf("Got %d items back, want 5", len(content))
@@ -57,7 +57,7 @@ func TestResponseOrder(t *testing.T) {
 }
 
 func TestOffsetResponseOrder(t *testing.T) {
-	content := runRequest(t, app, OffsetContentRequest)
+	content := runRequest(t, &app, OffsetContentRequest)
 
 	if len(content) != 5 {
 		t.Fatalf("Got %d items back, want 5", len(content))

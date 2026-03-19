@@ -29,7 +29,7 @@ func main() {
 
 	srv := http.Server{
 		Addr:    *addr,
-		Handler: app,
+		Handler: &app,
 	}
 
 	idleConnsClosed := make(chan struct{})
